@@ -34,12 +34,12 @@ body {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  overflow-x: hidden;
 }
 
 html {
   min-height: 100%;
   background-color: #ffffff;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -47,6 +47,7 @@ body {
   background-color: #ffffff;
   color: var(--body-text);
   font-family: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -133,89 +133,147 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-white text-[#1C1719] font-sans selection:bg-[#403047] selection:text-white">
-      {/* 1. Distinctive Editorial Navigation */}
-      <header className="sticky top-0 z-40 border-b border-[#d8c7dc] bg-white backdrop-blur-md">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 sm:px-8">
-          <Link href="/" className="group flex items-center gap-2">
-            <span className="font-serif text-2xl font-black tracking-tight text-[#1C1719] transition">
-              Link<span className="text-[#1C1719]">Forge</span>
-            </span>
-            <span className="hidden sm:inline-block border-l border-[#d8c7dc] pl-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-[#1C1719]">
-              URL Architecture
-            </span>
-          </Link>
-
-          <nav className="flex items-center gap-6 sm:gap-8">
-            <div className="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-[#1C1719]">
-              <a href="#features" className="transition hover:opacity-75">
-                Capabilities
-              </a>
-              <a href="#how-it-works" className="transition hover:opacity-75">
-                Protocol
-              </a>
-              <a href="#about" className="transition hover:opacity-75">
-                Philosophy
-              </a>
+    <main className="min-h-screen w-full overflow-x-clip bg-white text-[#1C1719] font-sans selection:bg-[#403047] selection:text-white">
+      {/* 1. Distinctive Editorial Navigation on Pure White matching reference */}
+      <header className="sticky top-0 z-40 h-14 border-b border-[#D8C7DC]/60 bg-white/95 backdrop-blur-md">
+        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between px-6 sm:px-8">
+          {/* Logo & URL Architecture Label */}
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-[#59171B] text-white shadow-2xs">
+              <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
             </div>
+            <Link href="/" className="font-sans text-xl sm:text-2xl font-black tracking-tight text-[#1C1719] hover:opacity-90 transition">
+              LinkForge
+            </Link>
+            <span className="text-[#D8C7DC] text-base font-light select-none">|</span>
+            <div className="flex flex-col font-mono text-[9px] sm:text-[10px] font-bold tracking-widest uppercase leading-[1.05] text-[#1C1719]">
+              <span>URL</span>
+              <span>ARCHITECTURE</span>
+            </div>
+          </div>
 
-            {user ? (
-              <Link
-                href="/dashboard"
-                className="group inline-flex items-center gap-2 rounded-full border border-[#403047] bg-[#403047] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-xs transition hover:bg-[#302536]"
+          {/* Navigation Links & Auth Actions */}
+          <div className="flex items-center gap-7">
+            <nav className="hidden md:flex items-center gap-7 font-mono text-xs font-semibold tracking-wider text-[#1C1719]">
+              <a
+                href="#features"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("features")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.pushState(null, "", "#features");
+                }}
+                className="hover:text-[#59171B] transition"
               >
-                <span>Dashboard</span>
-                <span className="font-mono text-[11px] transition-transform group-hover:translate-x-0.5">→</span>
-              </Link>
-            ) : (
-              <div className="flex items-center gap-4">
+                CAPABILITIES
+              </a>
+              <a
+                href="#protocol"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("protocol")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.pushState(null, "", "#protocol");
+                }}
+                className="hover:text-[#59171B] transition"
+              >
+                PROTOCOL
+              </a>
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.pushState(null, "", "#about");
+                }}
+                className="hover:text-[#59171B] transition"
+              >
+                PHILOSOPHY
+              </a>
+              <a
+                href="#features"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("features")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.pushState(null, "", "#features");
+                }}
+                className="hover:text-[#59171B] transition"
+              >
+                RESOURCES
+              </a>
+            </nav>
+
+            <div>
+              {user ? (
                 <Link
-                  href="/login"
-                  className="text-xs font-semibold uppercase tracking-wider text-[#1C1719] transition hover:opacity-75"
+                  href="/dashboard"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#302024] px-5 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-white shadow-xs transition duration-150 hover:bg-[#4a1c32]"
                 >
-                  Log In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[#403047] bg-[#403047] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-xs transition duration-200 hover:bg-[#302536] hover:border-[#302536] hover:text-white hover:-translate-y-0.5"
-                >
-                  <span>Get Started</span>
+                  <span>Dashboard</span>
                   <span className="font-mono text-[11px]">→</span>
                 </Link>
-              </div>
-            )}
-          </nav>
+              ) : (
+                <div className="flex items-center gap-6">
+                  <Link
+                    href="/login"
+                    className="font-mono text-xs font-semibold uppercase tracking-wider text-[#1C1719] hover:text-[#59171B] transition inline-flex items-center gap-1"
+                  >
+                    <span>LOG IN</span>
+                    <span className="font-mono text-xs">↗</span>
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-[#302024] px-5 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-white shadow-xs transition duration-150 hover:bg-[#4a1c32]"
+                  >
+                    <span>GET STARTED</span>
+                    <span className="font-mono text-xs">↗</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* 2. Hero Section: Asymmetric Editorial Composition */}
-      <section className="relative w-full bg-white">
-        <div className="mx-auto max-w-7xl px-6 pt-10 sm:pt-16 pb-16 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      {/* 2. Hero Section: Precision Link Shortening matching reference visual & layout */}
+      <section className="relative w-full bg-white overflow-hidden flex flex-col justify-center min-h-[calc(100svh-3.5rem)] lg:min-h-[580px] lg:max-h-[760px] py-4 lg:py-2">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 items-center">
           
-          {/* Left Column: Headline, Narrative & Tool Interface */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 self-start rounded-full border border-[#d8c7dc] bg-[#f8f5f9] px-3.5 py-1 text-[11px] font-mono uppercase tracking-wider text-[#1C1719] shadow-xs">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#1C1719]"></span>
-              <span>Fast HTTP 307 · Zero Tracking Delay · Base62 Engine</span>
+          {/* Left Column: Editorial Headline & URL Shortener */}
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col z-10 w-full max-w-2xl lg:max-w-none justify-center">
+            {/* Eyebrow Label with Technical Star Glyph */}
+            <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#1C1719]">
+              <span className="text-base text-[#59171B] leading-none">✳</span>
+              <span>FAST HTTP 307 · ZERO TRACKING DELAY · BASE62 ENGINE</span>
             </div>
 
-            <h1 className="mt-6 font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1C1719] leading-[1.12]">
-              Precision link shortening,{" "}
-              <span className="italic font-normal text-[#1C1719]">elevated.</span>
+            {/* Oversized Bold Condensed Display Headline - Enlarged & Visually Dominant */}
+            <h1 className="mt-3 sm:mt-3.5 font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[58px] xl:text-[70px] 2xl:text-[76px] font-[900] tracking-[-0.04em] uppercase text-[#1C1719] leading-[0.88] sm:leading-[0.90]">
+              PRECISION LINK<br />
+              SHORTENING,<br />
+              <span className="relative inline-block mt-1 sm:mt-1.5">
+                <span className="absolute inset-0 -inset-x-3.5 sm:-inset-x-4 -inset-y-0.5 sm:-inset-y-1 bg-[#FED7B8] rounded-md sm:rounded-lg -z-10" />
+                <span className="text-[#302024] px-0.5">ELEVATED.</span>
+              </span>
             </h1>
 
-            <p className="mt-5 text-base sm:text-lg text-[#1C1719] leading-relaxed max-w-xl font-sans">
-              Transform cluttered, fragile URLs into clean, permanent short links with instant high-resolution QR codes, custom branding, and real-time click telemetry.
-            </p>
+            {/* Supporting Paragraph with Technical Vertical Accent Line - Comfortable Readability */}
+            <div className="mt-3 sm:mt-3.5 pl-3.5 border-l-2 border-[#59171B]/60">
+              <p className="text-sm sm:text-base lg:text-[15px] xl:text-[16px] text-[#1C1719]/85 leading-relaxed max-w-lg font-sans">
+                Transform cluttered, fragile URLs into clean, permanent short links with instant high-resolution QR codes, custom branding, and real-time click telemetry.
+              </p>
+            </div>
 
-            {/* Premium Product Interface: URL Shortener */}
-            <div className="mt-8 rounded-2xl border border-[#d8c7dc] bg-white p-3 sm:p-4 shadow-xs">
-              <form onSubmit={handleShorten} className="flex flex-col gap-2.5">
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 rounded-xl border border-[#d8c7dc] bg-[#f8f5f9] p-1.5 focus-within:border-[#403047] focus-within:ring-2 focus-within:ring-[#403047]/10 transition">
-                  <div className="hidden sm:flex items-center pl-3 pr-1 font-mono text-xs font-semibold text-[#1C1719]/60 select-none">
-                    https://
+            {/* URL Shortener Interface - Full Placeholder Visibility & Responsive Flex */}
+            <div className="mt-4 sm:mt-5 rounded-2xl border border-[#DCC8E2] bg-white p-1 sm:p-1.5 shadow-xs w-full max-w-2xl">
+              <form onSubmit={handleShorten} className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 rounded-xl bg-transparent p-0.5 sm:p-1 focus-within:ring-2 focus-within:ring-[#302024]/15">
+                  <div className="hidden sm:flex items-center justify-center h-7 w-7 rounded-lg bg-[#EADCEB] text-[#59171B] shrink-0 ml-1">
+                    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                    </svg>
                   </div>
+                  <span className="hidden sm:inline-block font-mono text-xs text-[#1C1719]/45 select-none pl-1 shrink-0">https://</span>
                   <input
                     type="url"
                     required
@@ -225,36 +283,38 @@ export default function Home() {
                       setError("");
                     }}
                     placeholder="paste your long destination URL..."
-                    className="min-w-0 flex-1 bg-transparent px-3 py-2.5 text-sm sm:text-base font-sans text-[#1C1719] outline-none placeholder:text-[#1C1719]/50"
+                    className="min-w-0 flex-1 bg-transparent px-2 py-2 text-sm sm:text-[14px] font-sans text-[#1C1719] outline-none placeholder:text-[#1C1719]/45"
                   />
-                  <div className="flex items-center gap-2 pr-1">
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <span className="hidden sm:inline-block text-[#DCC8E2] font-light select-none px-0.5">|</span>
                     <button
                       type="button"
                       onClick={() => setShowOptions(!showOptions)}
-                      className={`rounded-lg px-3 py-2 text-xs font-semibold transition flex items-center gap-1.5 ${
+                      className={`rounded-lg px-2.5 py-1.5 text-xs font-semibold transition flex items-center gap-1 shrink-0 whitespace-nowrap ${
                         showOptions || customAlias || title || expiresAt
-                          ? "bg-[#403047]/10 text-[#1C1719] border border-[#403047]/30"
-                          : "border border-[#d8c7dc] bg-white text-[#1C1719] hover:bg-[#f8f5f9]"
+                          ? "bg-[#302024]/10 text-[#1C1719] border border-[#302024]/30"
+                          : "border border-[#D8C7DC] bg-white text-[#1C1719] hover:bg-[#F8F5F9]"
                       }`}
                       title="Custom alias, title, and expiration"
                     >
                       <span>Options</span>
-                      <span className="font-mono text-[10px]">{showOptions ? "▲" : "▼"}</span>
+                      <span className="font-mono text-[9px]">{showOptions ? "▲" : "▼"}</span>
                     </button>
 
                     <button
                       type="submit"
                       disabled={loading}
-                      className="rounded-lg bg-[#403047] px-5 py-2.5 text-xs sm:text-sm font-semibold tracking-wide text-white shadow-xs transition hover:bg-[#302536] disabled:opacity-50 shrink-0"
+                      className="rounded-xl bg-[#302024] px-4 py-2 sm:px-4.5 text-xs sm:text-[13px] font-semibold tracking-wide text-white shadow-xs transition duration-150 hover:bg-[#4a1c32] disabled:opacity-50 shrink-0 inline-flex items-center gap-1 whitespace-nowrap"
                     >
-                      {loading ? "Forging..." : "Shorten URL"}
+                      <span>{loading ? "Forging..." : "Shorten URL"}</span>
+                      <span className="font-mono text-xs">↗</span>
                     </button>
                   </div>
                 </div>
 
                 {/* Optional Controls Drawer */}
                 {showOptions && (
-                  <div className="mt-2 rounded-xl border border-[#d8c7dc] bg-[#f8f5f9] p-4 grid grid-cols-1 gap-3 sm:grid-cols-3 text-left animate-fadeIn">
+                  <div className="mt-2 rounded-xl border border-[#d8c7dc] bg-[#f8f5f9] p-3 grid grid-cols-1 gap-2.5 sm:grid-cols-3 text-left animate-fadeIn">
                     <div>
                       <label className="block font-mono text-[10px] font-bold uppercase tracking-wider text-[#1C1719]">
                         Custom Alias
@@ -264,7 +324,7 @@ export default function Home() {
                         placeholder="e.g. spring-promo"
                         value={customAlias}
                         onChange={(e) => setCustomAlias(e.target.value)}
-                        className="mt-1 w-full rounded-lg border border-[#d8c7dc] bg-white px-3 py-2 text-xs font-mono text-[#1C1719] outline-none focus:border-[#403047] focus:ring-1 focus:ring-[#403047] placeholder:text-[#1C1719]/50"
+                        className="mt-1 w-full rounded-lg border border-[#d8c7dc] bg-white px-2.5 py-1.5 text-xs font-mono text-[#1C1719] outline-none focus:border-[#302024] focus:ring-1 focus:ring-[#302024] placeholder:text-[#1C1719]/50"
                       />
                     </div>
 
@@ -277,7 +337,7 @@ export default function Home() {
                         placeholder="e.g. Campaign Link"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="mt-1 w-full rounded-lg border border-[#d8c7dc] bg-white px-3 py-2 text-xs text-[#1C1719] outline-none focus:border-[#403047] focus:ring-1 focus:ring-[#403047] placeholder:text-[#1C1719]/50"
+                        className="mt-1 w-full rounded-lg border border-[#d8c7dc] bg-white px-2.5 py-1.5 text-xs text-[#1C1719] outline-none focus:border-[#302024] focus:ring-1 focus:ring-[#302024] placeholder:text-[#1C1719]/50"
                       />
                     </div>
 
@@ -289,7 +349,7 @@ export default function Home() {
                         type="datetime-local"
                         value={expiresAt}
                         onChange={(e) => setExpiresAt(e.target.value)}
-                        className="mt-1 w-full rounded-lg border border-[#d8c7dc] bg-white px-3 py-2 text-xs text-[#1C1719] outline-none focus:border-[#403047] focus:ring-1 focus:ring-[#403047]"
+                        className="mt-1 w-full rounded-lg border border-[#d8c7dc] bg-white px-2.5 py-1.5 text-xs text-[#1C1719] outline-none focus:border-[#302024] focus:ring-1 focus:ring-[#302024]"
                       />
                     </div>
                   </div>
@@ -298,59 +358,59 @@ export default function Home() {
             </div>
 
             {error && (
-              <div className="mt-4 rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">
+              <div className="mt-3 rounded-xl border border-red-200 bg-red-50 p-2.5 text-xs font-semibold text-red-700 w-full max-w-2xl">
                 {error}
               </div>
             )}
 
-            {/* Result Card: Displayed right inside the workflow */}
+            {/* Result Card: Displayed directly on white in Light Plum #D9C5DC */}
             {createdLink && (
-              <div className="mt-5 rounded-2xl border border-[#d8c7dc] bg-[#D9C5DC] p-5 sm:p-6 text-[#1C1719] shadow-xs animate-fadeIn">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="mt-3 rounded-2xl border border-[#d8c7dc] bg-[#D9C5DC] p-4 text-[#1C1719] shadow-xs animate-fadeIn w-full max-w-2xl">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div className="min-w-0 flex-1">
                     <span className="inline-flex rounded-full bg-white px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#1C1719]">
                       ✓ Link Ready
                     </span>
 
-                    <div className="mt-2 flex flex-wrap items-center gap-3">
+                    <div className="mt-1.5 flex flex-wrap items-center gap-2.5">
                       <a
                         href={createdLink.shortUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-[#1C1719] hover:underline"
+                        className="font-mono text-lg sm:text-xl font-bold tracking-tight text-[#1C1719] hover:underline"
                       >
                         {createdLink.shortUrl}
                       </a>
                       <button
                         onClick={handleCopy}
-                        className="rounded-lg bg-white px-3 py-1 font-mono text-xs font-bold text-[#1C1719] transition hover:bg-[#f8f5f9] shadow-xs"
+                        className="rounded-lg bg-white px-2.5 py-1 font-mono text-xs font-bold text-[#1C1719] transition hover:bg-[#f8f5f9] shadow-xs"
                       >
                         {copied ? "✓ Copied" : "Copy"}
                       </button>
                     </div>
 
-                    <p className="mt-2 truncate font-mono text-xs text-[#1C1719] max-w-md">
+                    <p className="mt-1 truncate font-mono text-xs text-[#1C1719] max-w-md">
                       → {createdLink.originalUrl}
                     </p>
 
                     {createdLink.expiresAt && (
-                      <p className="mt-1 text-[11px] text-[#1C1719]">
+                      <p className="mt-0.5 text-[10.5px] text-[#1C1719]">
                         Expires on {new Date(createdLink.expiresAt).toLocaleString()}
                       </p>
                     )}
                   </div>
 
                   {/* QR Presentation */}
-                  <div className="flex flex-col items-center gap-1.5 border-t border-[#1C1719]/15 pt-3 sm:border-t-0 sm:border-l sm:border-[#1C1719]/15 sm:pl-5 sm:pt-0">
+                  <div className="flex flex-col items-center gap-1 border-t border-[#1C1719]/15 pt-2 sm:border-t-0 sm:border-l sm:border-[#1C1719]/15 sm:pl-4 sm:pt-0">
                     {qrDataUrl ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img
                         src={qrDataUrl}
                         alt="QR Code"
-                        className="h-24 w-24 rounded-lg bg-white p-1.5 shadow-xs"
+                        className="h-20 w-20 rounded-lg bg-white p-1 shadow-xs"
                       />
                     ) : (
-                      <div className="flex h-24 w-24 items-center justify-center rounded-lg bg-white/60 text-[10px] text-[#1C1719]">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-white/60 text-[10px] text-[#1C1719]">
                         Generating...
                       </div>
                     )}
@@ -358,7 +418,7 @@ export default function Home() {
                       <a
                         href={qrDataUrl}
                         download={`qr-${createdLink.shortCode}.png`}
-                        className="font-mono text-[10px] font-bold text-[#1C1719] hover:underline"
+                        className="font-mono text-[9.5px] font-bold text-[#1C1719] hover:underline"
                       >
                         Download QR ↓
                       </a>
@@ -368,161 +428,322 @@ export default function Home() {
               </div>
             )}
 
-            {/* Editorial Micro-Trust Note */}
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-xs font-medium text-[#1C1719]">
-              <span className="flex items-center gap-1.5">
-                <span className="text-[#1C1719]">✓</span> No account required
+            {/* Benefit Badges Row */}
+            <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-[13px] font-medium text-[#1C1719]">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="text-[#302024] font-bold">✓</span> No account required
               </span>
-              <span className="flex items-center gap-1.5">
-                <span className="text-[#1C1719]">✓</span> Permanent by default
+              <span className="inline-flex items-center gap-1.5">
+                <span className="text-[#302024] font-bold">✓</span> Permanent by default
               </span>
-              <span className="flex items-center gap-1.5">
-                <span className="text-[#1C1719]">✓</span> Low-latency redirects
+              <span className="inline-flex items-center gap-1.5">
+                <span className="text-[#302024] font-bold">✓</span> Low-latency redirects
               </span>
             </div>
           </div>
 
-          {/* Right Column: Custom Editorial Visual — Long URL to Short URL Transformation */}
-          <div className="lg:col-span-5 relative mt-6 lg:mt-0 flex flex-col space-y-3 sm:space-y-4">
-            
-            {/* BOX 1 — RAW SOURCE URL (Soft Lavender #E8DDEC) */}
-            <div className="rounded-2xl border border-[#d2bed7] bg-[#e8ddec] p-5 shadow-sm text-[#1C1719]">
-              <div className="flex items-center justify-between border-b border-[#d2bed7] pb-3">
-                <div className="flex items-center gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#1C1719]/30"></span>
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#1C1719]/60"></span>
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#1C1719]"></span>
-                </div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#1C1719]">
-                  Raw Source URL · 112 Chars
-                </span>
-              </div>
+          {/* Right Column: Layered 3D URL/Link Architecture Illustration - Perfectly Proportioned */}
+          <div className="lg:col-span-5 xl:col-span-5 relative flex items-center justify-center w-full py-2 lg:py-0">
+            <div className="w-full max-w-[500px] sm:max-w-[540px] lg:max-w-full mx-auto select-none relative">
+              <svg
+                className="w-full h-auto block select-none mx-auto drop-shadow-sm"
+                viewBox="0 0 660 480"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  {/* Volumetric Ground Shadow Filter */}
+                  <filter id="archGroundGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="30" />
+                  </filter>
 
-              <div className="mt-3.5 rounded-xl border border-[#d2bed7] bg-[#f5eff6] p-3.5 font-mono text-xs leading-relaxed text-[#1C1719] break-all select-none">
-                <span className="font-semibold text-[#1C1719]">https://acme.org/products/</span>
-                <span className="mx-0.5 rounded bg-[#d2bed7] px-1.5 py-0.5 font-semibold text-[#1C1719]">autumn-release</span>
-                <span className="text-[#1C1719]">?utm_source=email&amp;utm_campaign=q4&amp;ref=partner_8921&amp;token=xyz78</span>
-              </div>
+                  {/* Layer Drop Shadows */}
+                  <filter id="tierShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="18" stdDeviation="14" floodColor="#240A1D" floodOpacity="0.36" />
+                  </filter>
+                  <filter id="topSlabShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="15" stdDeviation="12" floodColor="#270D21" floodOpacity="0.26" />
+                  </filter>
 
-              <div className="mt-3.5 flex flex-wrap items-center gap-2">
-                <span className="rounded-md border border-[#d2bed7] bg-[#f5eff6] px-2.5 py-1 font-mono text-[10px] font-medium text-[#1C1719]">
-                  ⚠ Cluttered in Print
-                </span>
-                <span className="rounded-md border border-[#d2bed7] bg-[#f5eff6] px-2.5 py-1 font-mono text-[10px] font-medium text-[#1C1719]">
-                  ⚠ Fragile in SMS
-                </span>
-              </div>
+                  {/* Slab Gradients in LinkForge Plum Palette */}
+                  {/* Tier 1: Pearl White Top Face */}
+                  <linearGradient id="topFacePearl" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFFFFF" />
+                    <stop offset="65%" stopColor="#FAF4FA" />
+                    <stop offset="100%" stopColor="#F0E3F0" />
+                  </linearGradient>
+
+                  {/* Tier 1: Bevel Extrusion Side Wall */}
+                  <linearGradient id="topSideWall" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#D8C8D9" />
+                    <stop offset="45%" stopColor="#C4ADC5" />
+                    <stop offset="100%" stopColor="#DFD0E1" />
+                  </linearGradient>
+
+                  {/* Tier 2: Obsidian Deep Plum Redirect Engine Face */}
+                  <linearGradient id="midFaceObsidian" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#3E1D32" />
+                    <stop offset="55%" stopColor="#2A1021" />
+                    <stop offset="100%" stopColor="#1B0714" />
+                  </linearGradient>
+
+                  {/* Tier 2: Extrusion Wall with Chamfer Reflection */}
+                  <linearGradient id="midSideWall" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#180713" />
+                    <stop offset="40%" stopColor="#2A1021" />
+                    <stop offset="85%" stopColor="#6C2653" />
+                    <stop offset="100%" stopColor="#3A152C" />
+                  </linearGradient>
+
+                  {/* Tier 3: Soft Lilac / Lavender Output Face */}
+                  <linearGradient id="botFaceLilac" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F5EBF7" />
+                    <stop offset="50%" stopColor="#E2CCE6" />
+                    <stop offset="100%" stopColor="#CEB4D3" />
+                  </linearGradient>
+
+                  {/* Tier 3: Extrusion Side Wall */}
+                  <linearGradient id="botSideWall" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#9C80A3" />
+                    <stop offset="40%" stopColor="#B497BB" />
+                    <stop offset="80%" stopColor="#C5ABC9" />
+                    <stop offset="100%" stopColor="#AC8FB3" />
+                  </linearGradient>
+
+                  {/* Base Foundation Plate Gradients */}
+                  <linearGradient id="baseFacePlate" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#2D1224" />
+                    <stop offset="100%" stopColor="#190612" />
+                  </linearGradient>
+                  <linearGradient id="baseSidePlate" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#13040D" />
+                    <stop offset="100%" stopColor="#240B1C" />
+                  </linearGradient>
+
+                  {/* Floating Prisms Gradients */}
+                  <linearGradient id="prismLilac" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#E9DDED" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#E9DDED" stopOpacity="0.15" />
+                  </linearGradient>
+                  <linearGradient id="prismPeach" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FED7B8" stopOpacity="0.85" />
+                    <stop offset="100%" stopColor="#FED7B8" stopOpacity="0.15" />
+                  </linearGradient>
+
+                  {/* Vertical Light Pillar Gradient */}
+                  <linearGradient id="pillarGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#E2CCE6" stopOpacity="0.85" />
+                    <stop offset="60%" stopColor="#CEB4D3" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#59171B" stopOpacity="0" />
+                  </linearGradient>
+
+                  {/* Technical Coordinate Grid */}
+                  <pattern id="archGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#F4EAF3" strokeWidth="0.8" />
+                  </pattern>
+                </defs>
+
+                {/* 1. Coordinate Grid Background */}
+                <rect x="25" y="20" width="610" height="440" fill="url(#archGrid)" opacity="0.85" />
+
+                {/* 2. Four Precision Corner Crosshairs (+) */}
+                <g stroke="#8A6382" strokeWidth="1.4">
+                  <path d="M 25 32 L 39 32 M 32 25 L 32 39" />
+                  <path d="M 621 32 L 635 32 M 628 25 L 628 39" />
+                  <path d="M 25 448 L 39 448 M 32 441 L 32 455" />
+                  <path d="M 621 448 L 635 448 M 628 441 L 628 455" />
+                </g>
+
+                {/* 3. Sweeping Swept Orbit Ellipse */}
+                <ellipse cx="338" cy="265" rx="255" ry="142" stroke="#DFCDE2" strokeWidth="1.35" fill="none" opacity="0.75" />
+
+                {/* 4. Ground Volumetric Diffuse Plum Shadows on Floor */}
+                <ellipse cx="338" cy="428" rx="195" ry="56" fill="#4A1435" fillOpacity="0.22" filter="url(#archGroundGlow)" />
+                <ellipse cx="338" cy="418" rx="140" ry="36" fill="#240D1D" fillOpacity="0.28" filter="url(#archGroundGlow)" />
+
+                {/* Vertical Light Columns beneath Bottom Slab */}
+                <g opacity="0.85">
+                  <rect x="312" y="342" width="9" height="78" rx="2.5" fill="url(#pillarGlow)" />
+                  <rect x="354" y="342" width="9" height="78" rx="2.5" fill="url(#pillarGlow)" />
+                </g>
+
+                {/* 5. Floating Glass Prisms Accents */}
+                <polygon points="495,78 565,92 542,108 472,94" fill="url(#prismLilac)" />
+                <polygon points="80,225 145,239 128,255 63,241" fill="url(#prismLilac)" />
+                <polygon points="90,345 155,359 138,375 73,361" fill="url(#prismPeach)" />
+                <polygon points="535,185 588,197 572,210 519,198" fill="url(#prismPeach)" />
+
+                {/* 6. Hatched Telemetry Marks (IIIIII on left, IIIIIIIIIIII on floor) */}
+                <g transform="translate(130, 162)">
+                  <line x1="0" y1="0" x2="-6" y2="17" stroke="#59171B" strokeWidth="3" strokeLinecap="round" />
+                  <line x1="8" y1="0" x2="2" y2="17" stroke="#59171B" strokeWidth="3" strokeLinecap="round" />
+                  <line x1="16" y1="0" x2="10" y2="17" stroke="#59171B" strokeWidth="3" strokeLinecap="round" />
+                  <line x1="24" y1="0" x2="18" y2="17" stroke="#59171B" strokeWidth="3" strokeLinecap="round" />
+                  <line x1="32" y1="0" x2="26" y2="17" stroke="#59171B" strokeWidth="3" strokeLinecap="round" />
+                  <line x1="40" y1="0" x2="34" y2="17" stroke="#59171B" strokeWidth="3" strokeLinecap="round" />
+                </g>
+                <g transform="translate(490, 428)">
+                  <line x1="0" y1="0" x2="0" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="6" y1="0" x2="6" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="12" y1="0" x2="12" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="18" y1="0" x2="18" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="24" y1="0" x2="24" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="30" y1="0" x2="30" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="36" y1="0" x2="36" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="42" y1="0" x2="42" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="48" y1="0" x2="48" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="54" y1="0" x2="54" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="60" y1="0" x2="60" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="66" y1="0" x2="66" y2="13" stroke="#59171B" strokeWidth="2.2" strokeLinecap="round" />
+                </g>
+
+                {/* ==================== THE ENLARGED ISOMETRIC STACK ==================== */}
+
+                {/* BASE FOUNDATION PLATE */}
+                <g id="baseFoundation">
+                  {[...Array(9)].map((_, i) => (
+                    <g key={i} transform={`translate(338, ${385 + (9 - i) * 1.6}) scale(1, 0.58) rotate(45)`}>
+                      <rect x="-105" y="-105" width="210" height="210" rx="42" fill="url(#baseSidePlate)" />
+                    </g>
+                  ))}
+                  <g transform="translate(338, 385) scale(1, 0.58) rotate(45)">
+                    <rect x="-105" y="-105" width="210" height="210" rx="42" fill="url(#baseFacePlate)" stroke="#3E1D31" strokeWidth="1.5" />
+                  </g>
+                </g>
+
+                {/* LAYER 3: BOTTOM SLAB (Lavender / Lilac Output) - Substantially Enlarged */}
+                <g id="layer3Bottom" filter="url(#tierShadow)">
+                  {[...Array(18)].map((_, i) => (
+                    <g key={i} transform={`translate(338, ${330 + (18 - i) * 1.65}) scale(1, 0.58) rotate(45)`}>
+                      <rect x="-102" y="-102" width="204" height="204" rx="40" fill="url(#botSideWall)" />
+                    </g>
+                  ))}
+                  <g transform="translate(338, 330) scale(1, 0.58) rotate(45)">
+                    <rect x="-102" y="-102" width="204" height="204" rx="40" fill="url(#botFaceLilac)" stroke="#FFFFFF" strokeWidth="2" />
+                  </g>
+                </g>
+
+                {/* LAYER 2: MIDDLE SLAB (Deep Obsidian Plum Redirect Engine) - Substantially Enlarged */}
+                <g id="layer2Middle" filter="url(#tierShadow)">
+                  {[...Array(22)].map((_, i) => (
+                    <g key={i} transform={`translate(338, ${238 + (22 - i) * 1.65}) scale(1, 0.58) rotate(45)`}>
+                      <rect x="-97" y="-97" width="194" height="194" rx="38" fill="url(#midSideWall)" />
+                    </g>
+                  ))}
+                  <g transform="translate(338, 238) scale(1, 0.58) rotate(45)">
+                    <rect x="-97" y="-97" width="194" height="194" rx="38" fill="url(#midFaceObsidian)" stroke="#6C2653" strokeWidth="1.75" />
+                    <path d="M -84 97 L 97 97" stroke="#BA5B9E" strokeWidth="2.8" strokeLinecap="round" opacity="0.85" />
+                    <rect x="42" y="84" width="20" height="11" rx="2.5" fill="#E9DDED" opacity="0.9" />
+                  </g>
+                </g>
+
+                {/* LAYER 1: TOP SLAB (Pearl White Input Tier with Central Chain-Link Icon) - Substantially Enlarged */}
+                <g id="layer1Top" filter="url(#topSlabShadow)">
+                  {[...Array(15)].map((_, i) => (
+                    <g key={i} transform={`translate(338, ${146 + (15 - i) * 1.55}) scale(1, 0.58) rotate(45)`}>
+                      <rect x="-92" y="-92" width="184" height="184" rx="36" fill="url(#topSideWall)" />
+                    </g>
+                  ))}
+                  <g transform="translate(338, 146) scale(1, 0.58) rotate(45)">
+                    <rect x="-92" y="-92" width="184" height="184" rx="36" fill="url(#topFacePearl)" stroke="#FFFFFF" strokeWidth="2.2" />
+                    
+                    {/* Central Embossed Dark Plum Chain Link Icon - Scaled Up */}
+                    <g transform="rotate(-45) scale(1.18)">
+                      <path d="M -8 -16 L -24 -16 C -34 -16 -42 -8 -42 2 C -42 12 -34 20 -24 20 L -8 20 C 2 20 10 12 10 2 C 10 -8 2 -16 -8 -16 Z" 
+                            fill="none" stroke="#302024" strokeWidth="9.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M 8 -20 L 24 -20 C 34 -20 42 -12 42 -2 C 42 8 34 16 24 16 L 8 16 C -2 16 -10 8 -10 -2 C -10 -12 -2 -20 8 -20 Z" 
+                            fill="none" stroke="#302024" strokeWidth="9.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M -4 20 L 8 20" stroke="#FFFFFF" strokeWidth="13" strokeLinecap="round" />
+                      <path d="M -8 20 L 8 20" fill="none" stroke="#302024" strokeWidth="9.5" strokeLinecap="round" />
+                    </g>
+                  </g>
+                </g>
+
+                {/* ==================== CALLOUT BADGES & CONNECTORS ==================== */}
+
+                {/* CALLOUT 1: LONG URL (INPUT) */}
+                <g id="calloutLongUrl">
+                  <circle cx="320" cy="142" r="4" fill="#302024" />
+                  <circle cx="320" cy="142" r="6" stroke="#FFFFFF" strokeWidth="1.5" fill="none" />
+                  <path d="M 320 142 L 235 82 L 215 82" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
+                  <rect x="60" y="68" width="155" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
+                  <text x="137" y="86" textAnchor="middle" fontFamily="monospace" fontSize="10" fontWeight="bold" fill="#302024" letterSpacing="0.05em">
+                    LONG URL (INPUT)
+                  </text>
+                </g>
+
+                {/* CALLOUT 2: REDIRECT ENGINE */}
+                <g id="calloutRedirectEngine">
+                  <circle cx="432" cy="238" r="4" fill="#302024" />
+                  <circle cx="432" cy="238" r="6" stroke="#FFFFFF" strokeWidth="1.5" fill="none" />
+                  <path d="M 432 238 L 495 238" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
+                  <rect x="495" y="224" width="146" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
+                  <circle cx="509" cy="238" r="2.2" fill="#302024" />
+                  <text x="572" y="242" textAnchor="middle" fontFamily="monospace" fontSize="10" fontWeight="bold" fill="#302024" letterSpacing="0.05em">
+                    REDIRECT ENGINE
+                  </text>
+                </g>
+
+                {/* CALLOUT 3: SHORT LINK (OUTPUT) */}
+                <g id="calloutShortLink">
+                  <circle cx="438" cy="336" r="4" fill="#302024" />
+                  <circle cx="438" cy="336" r="6" stroke="#FFFFFF" strokeWidth="1.5" fill="none" />
+                  <path d="M 438 336 L 476 386 L 488 386" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
+                  <rect x="482" y="372" width="168" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
+                  <path d="M 494 386 L 497 381 L 500 386 L 497 391 Z" fill="#302024" />
+                  <text x="574" y="390" textAnchor="middle" fontFamily="monospace" fontSize="10" fontWeight="bold" fill="#302024" letterSpacing="0.05em">
+                    SHORT LINK (OUTPUT)
+                  </text>
+                </g>
+              </svg>
             </div>
-
-            {/* Transformation Flow / Engine Indicator (Light Plum #D9C5DC) */}
-            <div className="relative my-1 flex items-center justify-center">
-              <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                <div className="w-full border-t border-dashed border-[#d2bed7]" />
-              </div>
-              <div className="relative flex items-center gap-2 rounded-full border border-[#C8ADCE] bg-[#D9C5DC] px-4 py-1.5 text-[11px] font-mono text-[#1C1719] shadow-md">
-                <span className="text-[#1C1719]">⚡</span>
-                <span className="font-bold tracking-wide">LinkForge Base62 Hash &amp; Redirect Engine</span>
-                <span className="text-xs text-[#1C1719] font-mono">↓</span>
-              </div>
-            </div>
-
-            {/* BOX 2 — BRANDED SHORT LINK (Pale Rose Lavender #F3EAF0) */}
-            <div className="rounded-2xl border border-[#d2bed7] bg-[#f3eaf0] p-5 shadow-sm text-[#1C1719]">
-              <div className="flex items-center justify-between border-b border-[#d2bed7] pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 rounded-full bg-emerald-600 animate-pulse"></span>
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#1C1719]">
-                    Branded Short Link
-                  </span>
-                </div>
-                <span className="rounded-full border border-[#d2bed7] bg-[#e8ddec] px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#1C1719]">
-                  -79% Chars
-                </span>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#d2bed7] bg-white p-3.5 shadow-xs">
-                <div className="font-mono text-base sm:text-lg font-bold text-[#1C1719]">
-                  linkforge.io/autumn
-                </div>
-                <div className="flex items-center gap-1 font-mono text-[11px] text-[#1C1719]">
-                  <span>⚡ 18ms</span>
-                </div>
-              </div>
-
-              {/* Telemetry Preview HUD */}
-              <div className="mt-4 grid grid-cols-3 gap-2 text-center font-mono text-xs">
-                <div className="rounded-xl border border-[#d2bed7] bg-white p-2.5 shadow-xs">
-                  <p className="text-[10px] uppercase text-[#1C1719]">Total Clicks</p>
-                  <p className="mt-0.5 font-serif text-lg font-bold text-[#1C1719]">1,482</p>
-                </div>
-                <div className="rounded-xl border border-[#d2bed7] bg-white p-2.5 shadow-xs">
-                  <p className="text-[10px] uppercase text-[#1C1719]">Top Device</p>
-                  <p className="mt-0.5 font-sans text-xs font-bold text-[#1C1719]">Mobile (68%)</p>
-                </div>
-                <div className="rounded-xl border border-[#d2bed7] bg-white p-2.5 shadow-xs">
-                  <p className="text-[10px] uppercase text-[#1C1719]">Protocol</p>
-                  <p className="mt-0.5 font-mono text-xs font-bold text-[#1C1719]">HTTP 307</p>
-                </div>
-              </div>
-
-              {/* Integrated Mini QR Code Teaser */}
-              <div className="mt-4 flex items-center justify-between border-t border-[#d2bed7] pt-3 text-xs text-[#1C1719]">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-base text-[#1C1719]">▦</span>
-                  <span className="font-sans text-xs font-semibold text-[#1C1719]">Vector QR Code ready</span>
-                </div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#1C1719]">
-                  PNG Download
-                </span>
-              </div>
-            </div>
-
           </div>
-
         </div>
+      </section>
 
-        {/* 3. Session Recent Links Drawer (Preserved Feature) */}
-        {recentLinks.length > 0 && (
-          <div className="mt-12 rounded-2xl border border-[#d8c7dc] bg-white p-5 shadow-xs">
-            <div className="flex items-center justify-between border-b border-[#d8c7dc] pb-3">
+      {/* 3. Session Recent Links Drawer (Styled in deeper visible Light Plum #EDE2F0) */}
+      {recentLinks.length > 0 && (
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 py-6">
+          <div className="rounded-2xl border border-[#DCC8E2] bg-[#EDE2F0] p-5 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#DCC8E2] pb-3">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#1C1719]">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#302024]">
                   Recent Session Links
                 </span>
-                <span className="rounded-full bg-[#e8ddec] px-2 py-0.5 font-mono text-[10px] font-bold text-[#1C1719]">
+                <span className="rounded-full bg-[#DCC8E2] px-2 py-0.5 font-mono text-[10px] font-bold text-[#302024]">
                   {recentLinks.length}
                 </span>
               </div>
-              <Link href="/dashboard" className="text-xs font-semibold text-[#1C1719] hover:underline font-sans">
+              <Link href="/dashboard" className="text-xs font-semibold text-[#59171B] hover:text-[#302024] hover:underline font-sans transition">
                 Open Dashboard →
               </Link>
             </div>
 
-            <div className="mt-3 divide-y divide-[#d8c7dc]/60">
+            <div className="mt-3 divide-y divide-[#DCC8E2]">
               {recentLinks.map((link) => (
                 <div key={link.id} className="py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="min-w-0 flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-[#1C1719]">/{link.shortCode}</span>
-                    <span className="truncate font-mono text-xs text-[#1C1719] max-w-xs sm:max-w-md">
+                    <span className="font-mono text-sm font-bold text-[#302024]">/{link.shortCode}</span>
+                    <span className="truncate font-mono text-xs text-[#302024]/80 max-w-xs sm:max-w-md">
                       {link.originalUrl}
                     </span>
-                    <span className="font-mono text-[11px] text-[#1C1719]">
-                      ({link.clicks} clicks)
+                    <span className="font-mono text-[11px] text-[#59171B] shrink-0 font-medium">
+                      ({link.clicks} {link.clicks === 1 ? "click" : "clicks"})
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(link.shortUrl);
                         alert("Copied short URL to clipboard!");
                       }}
-                      className="rounded border border-[#d8c7dc] bg-white px-2.5 py-1 font-mono text-xs font-medium text-[#1C1719] hover:bg-[#f8f5f9] transition"
+                      className="rounded-lg border border-[#DCC8E2] bg-[#F8F2FA] px-3 py-1 font-mono text-xs font-semibold text-[#59171B] hover:bg-white transition shadow-2xs"
                     >
                       Copy
                     </button>
                     <Link
                       href={`/dashboard/analytics/${link.id}`}
-                      className="rounded border border-[#d8c7dc] bg-white px-2.5 py-1 font-mono text-xs font-medium text-[#1C1719] hover:bg-[#f8f5f9] transition"
+                      className="rounded-lg border border-[#DCC8E2] bg-[#F8F2FA] px-3 py-1 font-mono text-xs font-semibold text-[#59171B] hover:bg-white transition shadow-2xs"
                     >
                       Stats
                     </Link>
@@ -531,12 +752,11 @@ export default function Home() {
               ))}
             </div>
           </div>
-        )}
         </div>
-      </section>
+      )}
 
       {/* 4. Below-The-Fold: Distinctive Editorial Capabilities (No generic card grids) */}
-      <section id="features" className="border-t border-[#d8c7dc] bg-white py-16 sm:py-24">
+      <section id="features" className="scroll-mt-14 border-t border-[#d8c7dc] bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           
           {/* Section Header with Editorial Meta */}
@@ -650,7 +870,8 @@ export default function Home() {
       </section>
 
       {/* 5. Below-The-Fold: Stepped Protocol / How LinkForge Works */}
-      <section id="how-it-works" className="border-t border-[#d8c7dc] bg-white py-20 sm:py-28">
+      <section id="protocol" className="scroll-mt-14 border-t border-[#d8c7dc] bg-white py-20 sm:py-28">
+        <span id="how-it-works" className="-mt-14 block" />
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           
           <div className="max-w-2xl">
@@ -754,7 +975,7 @@ export default function Home() {
       </section>
 
       {/* 6. Below-The-Fold: Philosophy & Guarantees */}
-      <section id="about" className="border-t border-[#d8c7dc] bg-white py-20 sm:py-28">
+      <section id="about" className="scroll-mt-14 border-t border-[#d8c7dc] bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
@@ -830,7 +1051,7 @@ export default function Home() {
               </h4>
               <ul className="mt-3 space-y-2 text-xs text-[#1C1719]">
                 <li><a href="#features" className="hover:opacity-75 transition">Capabilities</a></li>
-                <li><a href="#how-it-works" className="hover:opacity-75 transition">Protocol Flow</a></li>
+                <li><a href="#protocol" className="hover:opacity-75 transition">Protocol Flow</a></li>
                 <li><a href="#about" className="hover:opacity-75 transition">Philosophy</a></li>
                 <li><Link href="/dashboard" className="hover:opacity-75 transition">Console / Dashboard</Link></li>
               </ul>

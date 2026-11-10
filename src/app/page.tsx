@@ -136,7 +136,7 @@ export default function Home() {
     <main className="min-h-screen w-full overflow-x-clip bg-white text-[#1C1719] font-sans selection:bg-[#403047] selection:text-white">
       {/* 1. Distinctive Editorial Navigation on Pure White matching reference */}
       <header className="sticky top-0 z-40 h-14 border-b border-[#D8C7DC]/60 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between px-6 sm:px-8">
+        <div className="mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-6 sm:px-8 lg:px-10">
           {/* Logo & URL Architecture Label */}
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-[#59171B] text-white shadow-2xs">
@@ -236,11 +236,11 @@ export default function Home() {
       </header>
 
       {/* 2. Hero Section: Precision Link Shortening matching reference visual & layout */}
-      <section className="relative w-full bg-white overflow-hidden flex flex-col justify-center min-h-[calc(100svh-3.5rem)] lg:min-h-[580px] lg:max-h-[760px] py-4 lg:py-2">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 items-center">
+      <section className="relative w-full bg-white overflow-hidden flex flex-col justify-center min-h-[calc(100svh-3.5rem)] lg:h-[calc(100vh-3.5rem)] lg:min-h-[580px] lg:max-h-[820px] py-4 lg:py-0">
+        <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-[48fr_52fr] gap-8 lg:gap-6 xl:gap-10 items-center">
           
-          {/* Left Column: Editorial Headline & URL Shortener */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col z-10 w-full max-w-2xl lg:max-w-none justify-center">
+          {/* Left Column (~48% width): Editorial Headline & URL Shortener */}
+          <div className="flex flex-col z-10 w-full max-w-2xl lg:max-w-none justify-center">
             {/* Eyebrow Label with Technical Star Glyph */}
             <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#1C1719]">
               <span className="text-base text-[#59171B] leading-none">✳</span>
@@ -248,7 +248,7 @@ export default function Home() {
             </div>
 
             {/* Oversized Bold Condensed Display Headline - Enlarged & Visually Dominant */}
-            <h1 className="mt-3 sm:mt-3.5 font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[58px] xl:text-[70px] 2xl:text-[76px] font-[900] tracking-[-0.04em] uppercase text-[#1C1719] leading-[0.88] sm:leading-[0.90]">
+            <h1 className="mt-3 sm:mt-3.5 font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[56px] xl:text-[68px] 2xl:text-[76px] font-[900] tracking-[-0.035em] uppercase text-[#1C1719] leading-[0.88] sm:leading-[0.90] select-none">
               PRECISION LINK<br />
               SHORTENING,<br />
               <span className="relative inline-block mt-1 sm:mt-1.5">
@@ -258,8 +258,8 @@ export default function Home() {
             </h1>
 
             {/* Supporting Paragraph with Technical Vertical Accent Line - Comfortable Readability */}
-            <div className="mt-3 sm:mt-3.5 pl-3.5 border-l-2 border-[#59171B]/60">
-              <p className="text-sm sm:text-base lg:text-[15px] xl:text-[16px] text-[#1C1719]/85 leading-relaxed max-w-lg font-sans">
+            <div className="mt-3.5 sm:mt-4 pl-3.5 border-l-2 border-[#59171B]/60">
+              <p className="text-base sm:text-[17px] lg:text-[16px] xl:text-[17.5px] text-[#1C1719]/80 leading-relaxed font-sans font-normal max-w-xl">
                 Transform cluttered, fragile URLs into clean, permanent short links with instant high-resolution QR codes, custom branding, and real-time click telemetry.
               </p>
             </div>
@@ -282,7 +282,7 @@ export default function Home() {
                       setUrl(e.target.value);
                       setError("");
                     }}
-                    placeholder="paste your long destination URL..."
+                    placeholder="Paste your long destination URL..."
                     className="min-w-0 flex-1 bg-transparent px-2 py-2 text-sm sm:text-[14px] font-sans text-[#1C1719] outline-none placeholder:text-[#1C1719]/45"
                   />
                   <div className="flex items-center gap-1.5 shrink-0">
@@ -442,11 +442,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Layered 3D URL/Link Architecture Illustration - Perfectly Proportioned */}
-          <div className="lg:col-span-5 xl:col-span-5 relative flex items-center justify-center w-full py-2 lg:py-0">
-            <div className="w-full max-w-[500px] sm:max-w-[540px] lg:max-w-full mx-auto select-none relative">
+          {/* Right Column (~52% width): Layered 3D URL/Link Architecture Illustration - Substantially Enlarged */}
+          <div className="relative flex items-center justify-center w-full py-2 lg:py-0">
+            <div className="w-full max-w-[540px] sm:max-w-[580px] lg:max-w-none xl:max-w-[700px] 2xl:max-w-[740px] mx-auto select-none relative flex items-center justify-center">
               <svg
-                className="w-full h-auto block select-none mx-auto drop-shadow-sm"
+                className="w-full h-auto max-h-[420px] sm:max-h-[460px] lg:max-h-[490px] xl:max-h-[540px] 2xl:max-h-[580px] block select-none mx-auto drop-shadow-sm"
                 viewBox="0 0 660 480"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -661,38 +661,38 @@ export default function Home() {
 
                 {/* ==================== CALLOUT BADGES & CONNECTORS ==================== */}
 
-                {/* CALLOUT 1: LONG URL (INPUT) */}
+                {/* CALLOUT 1: [01] LONG URL (INPUT) */}
                 <g id="calloutLongUrl">
                   <circle cx="320" cy="142" r="4" fill="#302024" />
                   <circle cx="320" cy="142" r="6" stroke="#FFFFFF" strokeWidth="1.5" fill="none" />
-                  <path d="M 320 142 L 235 82 L 215 82" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
-                  <rect x="60" y="68" width="155" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
-                  <text x="137" y="86" textAnchor="middle" fontFamily="monospace" fontSize="10" fontWeight="bold" fill="#302024" letterSpacing="0.05em">
-                    LONG URL (INPUT)
+                  <path d="M 320 142 L 235 82 L 210 82" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
+                  <rect x="42" y="68" width="168" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
+                  <text x="126" y="86" textAnchor="middle" fontFamily="monospace" fontSize="9.5" fontWeight="bold" fill="#302024" letterSpacing="0.04em">
+                    [01] LONG URL (INPUT)
                   </text>
                 </g>
 
-                {/* CALLOUT 2: REDIRECT ENGINE */}
+                {/* CALLOUT 2: [02] REDIRECT ENGINE */}
                 <g id="calloutRedirectEngine">
                   <circle cx="432" cy="238" r="4" fill="#302024" />
                   <circle cx="432" cy="238" r="6" stroke="#FFFFFF" strokeWidth="1.5" fill="none" />
-                  <path d="M 432 238 L 495 238" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
-                  <rect x="495" y="224" width="146" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
-                  <circle cx="509" cy="238" r="2.2" fill="#302024" />
-                  <text x="572" y="242" textAnchor="middle" fontFamily="monospace" fontSize="10" fontWeight="bold" fill="#302024" letterSpacing="0.05em">
-                    REDIRECT ENGINE
+                  <path d="M 432 238 L 485 238" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
+                  <rect x="485" y="224" width="162" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
+                  <circle cx="499" cy="238" r="2.2" fill="#302024" />
+                  <text x="571" y="242" textAnchor="middle" fontFamily="monospace" fontSize="9.5" fontWeight="bold" fill="#302024" letterSpacing="0.04em">
+                    [02] REDIRECT ENGINE
                   </text>
                 </g>
 
-                {/* CALLOUT 3: SHORT LINK (OUTPUT) */}
+                {/* CALLOUT 3: [03] SHORT LINK (OUTPUT) */}
                 <g id="calloutShortLink">
                   <circle cx="438" cy="336" r="4" fill="#302024" />
                   <circle cx="438" cy="336" r="6" stroke="#FFFFFF" strokeWidth="1.5" fill="none" />
-                  <path d="M 438 336 L 476 386 L 488 386" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
-                  <rect x="482" y="372" width="168" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
-                  <path d="M 494 386 L 497 381 L 500 386 L 497 391 Z" fill="#302024" />
-                  <text x="574" y="390" textAnchor="middle" fontFamily="monospace" fontSize="10" fontWeight="bold" fill="#302024" letterSpacing="0.05em">
-                    SHORT LINK (OUTPUT)
+                  <path d="M 438 336 L 472 386 L 478 386" stroke="#302024" strokeWidth="1.3" strokeLinecap="round" fill="none" />
+                  <rect x="478" y="372" width="174" height="28" rx="6" fill="#FFFFFF" stroke="#302024" strokeWidth="1.3" />
+                  <path d="M 490 386 L 493 381 L 496 386 L 493 391 Z" fill="#302024" />
+                  <text x="570" y="390" textAnchor="middle" fontFamily="monospace" fontSize="9.5" fontWeight="bold" fill="#302024" letterSpacing="0.04em">
+                    [03] SHORT LINK (OUTPUT)
                   </text>
                 </g>
               </svg>
